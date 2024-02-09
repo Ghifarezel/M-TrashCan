@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -654.2, "left": 458.4, "attrs": {} },
+    { "type": "wokwi-breadboard-mini", "id": "bb2", "top": -193.4, "left": 7.2, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 87, "left": 9, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -98, "left": 278.4, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -142.5,
+      "left": -186.5,
+      "attrs": { "distance": "7" }
+    }
+  ],
+  "connections": [
+    [ "uno:10", "servo1:PWM", "green", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "uno:8", "blue", [ "v0" ] ],
+    [ "uno:GND.2", "bb2:12b.h", "black", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "uno:9", "green", [ "v0" ] ],
+    [ "bb2:13t.b", "servo1:V+", "red", [ "v0", "h76.8", "v0" ] ],
+    [ "bb2:13t.c", "uno:5V", "red", [ "v192", "h9.6" ] ],
+    [ "ultrasonic1:GND", "bb2:12b.j", "black", [ "v28.8", "h210", "v-57.6" ] ],
+    [ "servo1:GND", "bb2:12b.i", "black", [ "h-57.6", "v-38.4" ] ],
+    [ "ultrasonic1:VCC", "bb2:13t.a", "red", [ "v19.2", "h115.2", "v-153.6" ] ],
+    [ "bb1:15b.g", "bb1:6t.c", "green", [ "v-67.2", "h86.4" ] ]
+  ],
+  "dependencies": {}
+}
